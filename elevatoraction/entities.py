@@ -26,25 +26,28 @@ class ElevatorCommandCenter(object):
             uuid.uuid4())
         self.elevators = []
         self.max_elevators = max_elevators
+        self.cid = command_id
 
     def add_elevator(self, elevator: ElevatorUnit) -> int:
         assert type(elevator) is ElevatorUnit
         if elevator.eid in self.elevator_ids():
-            raise DuplicatedElevatorError(
-                'elevator {} already controlled by {}'.format(elevator.eid, self.cid))
-        if len(self.elevators) + 1 > self.max_elevators:
+            raise DuplicatedElevatorError('elevator {} already controlled by {}'.format(elevator.eid, self.cid))
+        elif len(self.elevators) + 1 > self.max_elevators:
             raise TooManyElevatorsError('max elevators of {} '
                                         'reached'.format(self.max_elevators))
         else:
             self.elevators.append(elevator)
+            print('added')
             return 1
 
     def add_elevators(self, elevators: list) -> int:
         acc = 0
+        print(elevators)
         for e in elevators:
             try:
                 # FIXME: 'acc' is out of scope!
                 acc += self.add_elevator(e)
+                print(acc)
             except DuplicatedElevatorError:
                 info('Elevator already controlled. Skipping.')
 
