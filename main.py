@@ -2,24 +2,24 @@
 
 from elevatoraction import entities as ent
 
-import uuid
-
 if __name__ == '__main__':
     cc = ent.ElevatorCommandCenter()
-<<<<<<< HEAD
-    a = ent.ElevatorUnit()
-    cc.add_elevator(a)
-    cc.add_elevator(a)
-=======
-    e1 = ent.ElevatorUnit()
-    e2 = ent.ElevatorUnit()
-    print(e1.eid)
-    print(e2.eid)
-    print(cc.cid)
+    e1 = ent.ElevatorUnit(elevator_id='1')
+    e2 = ent.ElevatorUnit(elevator_id='2')
     cc.add_elevators([e1, e2])
-    # a = []
-    # for _ in range(17):
-        # a.append(ent.ElevatorUnit())
-    # cc.add_elevators(a)
->>>>>>> 5f8519062145659980b18e6fd06f442c112af8b5
-    cc.status_report()
+    print(cc.status_report())
+    cc.request_elevator(4)
+    cc.request_elevator(2)
+    cc.time_step()
+    cc.request_elevator(5)
+    cc.time_step()
+    cc.time_step()
+    cc.time_step()
+    cc.time_step()
+    cc.time_step()
+    cc.time_step()
+    cc.time_step()
+    cc.request_elevator(2)
+    cc.time_step()
+    cc.time_step()
+    print(cc.status_report())
