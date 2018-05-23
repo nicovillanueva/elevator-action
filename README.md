@@ -1,5 +1,7 @@
 # Elevator Action
 
+*[This repository is the solution for a coding challenge. Uploading it for preservation reasons.]*
+
 The solution provided is mainly comprised of two entities that work together: The ElevatorControlCenter and the ElevatorUnit. Both can be found in the aptly named 'entities' module.
 
 The idea is that a ControlCenter coordinates a bunch of Elevators. The latter are 'dumb' units that get orders from the CC on which floor to go to.
@@ -41,17 +43,17 @@ It's only requirement is Python 3.x (developed using Python 3.6, but should work
 To run the tests:
 
     python3 -m unittest tests.py
-    
+
 It's basically the same as the tests, but there's an example workflow on the main.py. To run it, obviously:
 
     python3 main.py
-    
+
 ### Dockerized
 
 In order to pinpoint the specific Python version, a Dockerfile is also provided. Portability is king.
 
-    docker build -t mesosphere-challenge .
-    docker run --rm mesosphere-challenge:latest
+    docker build -t elevator-action .
+    docker run --rm elevator-action:latest
 
 ## Pendings
 
